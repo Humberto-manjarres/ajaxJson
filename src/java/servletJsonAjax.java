@@ -21,7 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author Humberto Manjarres
  */
 public class servletJsonAjax extends HttpServlet {
-
+    List<Persona> listaPersona = new ArrayList<>();
+    PersonasDao personaDao;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -38,17 +39,27 @@ public class servletJsonAjax extends HttpServlet {
         String user=request.getParameter("userName");
         String edad=request.getParameter("userEdad");
         
-        List<Persona> lista = new ArrayList<Persona>();
-        lista.add(new Persona("pedro", 20));
-        lista.add(new Persona("ana", 30));
-        lista.add(new Persona("humberto", 37));
-        lista.add(new Persona("elias", 3));
-        lista.add(new Persona("lian", 3));
-        lista.add(new Persona(user,Integer.valueOf(edad)));
+//        List<Persona> lista = new ArrayList<Persona>();
+//        lista.add(new Persona("pedro", 20));
+//        lista.add(new Persona("ana", 30));
+//        lista.add(new Persona("humberto", 37));
+//        lista.add(new Persona("elias", 3));
+//        lista.add(new Persona("lian", 3));
+//        lista.add(new Persona(user,Integer.valueOf(edad)));
         
+        
+        try {
+            personaDao=new PersonasDao();
+            listaPersona = personaDao.listar();
+        } catch (Exception e) {
+            System.out.println("error servletJsonAjax --> "+e);
+        }
+        for (Persona persona : listaPersona) {
+            System.out.println("p-> "+persona.getNombre() );
+        }
         Gson gson = new Gson();
         PrintWriter pw = response.getWriter();
-        pw.println(gson.toJson(lista));
+        pw.println(gson.toJson(listaPersona));
         pw.close();
         
         System.out.println("user--> "+user+" edad--> "+edad);

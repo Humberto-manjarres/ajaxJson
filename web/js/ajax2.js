@@ -21,16 +21,20 @@ $(document).ready(function () {
                     userEdad: $('#userEdad').val()
                 },
                 success: function (responseText) {
-                    let res = document.querySelector('#res');
-                    res.innerHTML = '';
-                    let datos = JSON.parse(responseText);
-                    for (let items of datos) {
-                        res.innerHTML += `
+                    if (responseText === '' || responseText === null) {
+                        console.log('error-->'+responseText);
+                    } else {
+                        let res = document.querySelector('#res');
+                        res.innerHTML = '';
+                        let datos = JSON.parse(responseText);
+                        for (let items of datos) {
+                            res.innerHTML += `
                         <tr>
                         <td> ${items.nombre} </td>
                         <td> ${items.edad} </td>
                         </tr>
                         `;
+                        }
                     }
                     $('#userName').val('');
                     $('#userEdad').val('');
