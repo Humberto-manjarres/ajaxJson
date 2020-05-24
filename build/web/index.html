@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>AJAX Y JSON</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"
+        type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="section">
+                <div class="section">
+                    <form>
+                        <table>
+                            <tr>
+                                <th>
+                                    <label>Nombre Usuario: </label>
+                                    <input type="text" id="userName" class="form-control">
+                                </th>
+                                <th>
+                                    <label>Edad Usuario: </label>
+                                    <input type="text" id="userEdad" class="form-control">
+                                </th>
+                            </tr> 
+                        </table>
+                    </form>
+                </div>
+                <div>
+                    <button class="btn" id="boton">JSON</button>
+                    <button class="btn" id="boton1">Limpiar</button>
+                </div>
+
+                <table class="striped" style="border-color: aqua">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Edad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="res">
+
+                    </tbody>
+                </table>
+            </div>
+            <div id="mensaje" class="container" style="color: tomato; font-size: 3.5rem"></div>
+        </div>
+
+        <!--<script type="text/javascript" src="js/ajax.js"></script>-->
+        <script type="text/javascript" src="js/ajax2.js"></script>
+    </body>
+
+</html>
